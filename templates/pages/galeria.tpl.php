@@ -1,12 +1,10 @@
 <h2>Képgaléria</h2>
 <?php
     // Application logic:
- //   include('/includes/config.inc.php');
     $messages = array();   
 
     // Form checkings:
     if (isset($_POST['send'])) {
-        //print_r($_FILES);
         foreach($_FILES as $file) {
             if ($file['error'] == 4);   // There was no file uploaded
             elseif (!in_array($file['type'], $MEDIATYPES))
@@ -77,7 +75,7 @@
         echo '</ul>';
     }
 ?>
-    <form action="galeria.tpl.php " method="post"
+    <form method="post"
                 enctype="multipart/form-data">
         <label><input type="file" name="first" required></label>
         <br><br>
