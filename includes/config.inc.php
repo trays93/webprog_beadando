@@ -1,7 +1,7 @@
 <?php
 
 $weboldalCim = [
-    'cim' => 'Lorem Ipsum Kft.'
+    'cim' => 'Magyar Tengerimalac-védő Egyesület'
 ];
 
 $fejlec = [
@@ -10,7 +10,7 @@ $fejlec = [
 
 $lablec = [
     'copyright' => '&copy;' . date('Y'),
-    'nev' => 'Lorem Ipsum Kft.'
+    'nev' => 'Magyar Tengerimalac-védő Egyesület.'
 ];
 
 $oldalak = [
@@ -53,3 +53,8 @@ $hibaOldal = [
     'fajl' => '404',
     'szoveg' => 'A keresett oldal nem található!',
 ];
+$FOLDER = './images/galeria/';
+$TYPES = array ('.jpg', '.png');
+$MEDIATYPES = array('image/jpeg', 'image/png');
+$DATEFORMAT = "m/d/Y H:i";
+$MAXSIZE = 500*1024;

@@ -15,9 +15,11 @@ session_start();
 </head>
 <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
             <div class="container-fluid">
-                <a href="#" class="navbar-brand"><?= $weboldalCim['cim'] ?></a>
+                <a href="/webprog_beadando/" class="navbar-brand">
+                    <img src="./images/logo.svg" class="img-fluid" alt="logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
