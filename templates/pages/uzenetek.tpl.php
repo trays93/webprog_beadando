@@ -1,2 +1,53 @@
-<h2>Felhasználói üzenetek</h2>
-<p>Táblázatban megjeleníteni, belépet felhasználó lássa, dátum szerint rendezni</p>
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col">Név</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Tárgy</th>
+        <th scope="col">Üzenet</th>
+    </tr>
+</thead>
+</table>
+
+<?php
+class TableRows extends RecursiveIteratorIterator {
+  function __construct($it) {
+    parent::__construct($it, self::LEAVES_ONLY);
+  }
+
+  function current() {
+    return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+  }
+
+  function beginChildren() {
+    echo "<tr>";
+  }
+
+  function endChildren() {
+    echo "</tr>" . "\n";
+  }
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "webprog_beadando";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT nev, targy, email, uzenet FROM uzenet");
+    $stmt->execute();
+  
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+      echo $v;
+    }
+  } catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+  }
+  $conn = null;
+  echo "</table>";
+  ?>
+  
