@@ -53,7 +53,7 @@ $hibaOldal = [
     'fajl' => '404',
     'szoveg' => 'A keresett oldal nem található!',
 ];
-$FOLDER = './images/galeria/';
+$FOLDER = './galeria/';
 $TYPES = array ('.jpg', '.png');
 $MEDIATYPES = array('image/jpeg', 'image/png');
 $DATEFORMAT = "m/d/Y H:i";
