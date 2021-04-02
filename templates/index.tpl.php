@@ -3,7 +3,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,33 +13,41 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <link href="./styles/styles.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand"><?= $weboldalCim['cim'] ?></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <?php foreach ($oldalak as $url => $oldal) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link<?= $oldal == $keres ? ' active' : '' ?>" href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
-                            <?= $oldal['nev'] ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-                </ul>
+<body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand"><?= $weboldalCim['cim'] ?></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <?php foreach ($oldalak as $url => $oldal) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link<?= $oldal == $keres ? ' active' : '' ?>" href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
+                                <?= $oldal['nev'] ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div class="p-5 mt-5 mb-4 bg-light rounded-3">
+                <?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
             </div>
         </div>
-    </nav>
-
-    <main>
-    <?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
     </main>
 
-    <footer>
-        <p><?= $lablec['copyright'] ?> - <?= $lablec['nev'] ?></p>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted"><?= $lablec['copyright'] ?> - <?= $lablec['nev'] ?></span>
+        </div>
     </footer>
 </body>
 </html>
