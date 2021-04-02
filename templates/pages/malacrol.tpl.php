@@ -1,5 +1,4 @@
 <h2 itemprop="headline">A tengerimalac		</h2>
-</div><div itemprop="articleBody">
 <p>A tengerimalacok társas lények, az egyedül tartott malacka betegesebb, immunrendszere gyengébb, és bármennyit is foglalkozunk vele, igazán boldog csak egy másik tengerimalac mellett lehet.</p>
 <p>Természetes közegében 6-7 fős csapatokban élnek, melyet egy hím vezet. A hím fenntartja a békét a civakodó nőstények között és védi a csapatot a betolakodóktól. Csak az a hím lehet a csapat élén, akire a nőstények felnéznek, és feltétel nélkül elfogadják, ezért nem mindegy, milyen (ivartalanított!) hímet választunk a nőstényünk vagy nőstényeink mellé, bővebb információ itt.</p>
 <p>A tengerimalac – sok más kisrágcsálóval ellentétben - nappali állat, így nem kell tartanunk attól, hogy az egész napot átalussza, majd egész éjjel hangosan motoszkál. Mivel fűevő, a nap nagy részét széna rágcsálásával tölti. Gondoskodjunk róla bőséges, jó minőségű széna adagolásával, hogy ezt az igényét folyamatosan kielégíthesse!</p>
