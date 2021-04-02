@@ -1,7 +1,7 @@
 <h2>Képgaléria</h2>
 <?php
     // Application logic:
-    include('/includes/config.inc.php');
+ //   include('/includes/config.inc.php');
     $messages = array();   
 
     // Form checkings:
@@ -77,7 +77,7 @@
         echo '</ul>';
     }
 ?>
-    <form action="/webprog_beadando/templates/pages/galeria.tpl.php " method="post"
+    <form action="galeria.tpl.php " method="post"
                 enctype="multipart/form-data">
         <label><input type="file" name="first" required></label>
         <br><br>
