@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if (file_exists("./logicals/{$oldal['fajl']}.php")) {
+    include("./logicals/{$oldal['fajl']}.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="hu" class="h-100">
