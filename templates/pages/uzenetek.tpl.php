@@ -7,7 +7,7 @@
         <th scope="col">Üzenet</th>
     </tr>
 </thead>
-</table>
+<tbody>
 
 <?php
 class TableRows extends RecursiveIteratorIterator {
@@ -28,10 +28,7 @@ class TableRows extends RecursiveIteratorIterator {
   }
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "webprog_beadando";
+
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -41,13 +38,21 @@ try {
   
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-      echo $v;
-    }
+    // foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+?>
+    <?php foreach($stmt->fetchAll() as $k => $v) : ?>
+        <tr>
+            <td><?= $v['nev'] ?></td>
+            <td><?= $v['email'] ?></td>
+            <td><?= $v['targy'] ?></td>
+            <td><?= $v['uzenet'] ?></td>
+        </tr>
+    <?php endforeach; ?>
+<?php
   } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
   }
   $conn = null;
-  echo "</table>";
   ?>
-  
+  </tbody>
+  </table>

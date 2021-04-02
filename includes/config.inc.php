@@ -53,8 +53,14 @@ $hibaOldal = [
     'fajl' => '404',
     'szoveg' => 'A keresett oldal nem található!',
 ];
+//Galéria
 $FOLDER = './galeria/';
 $TYPES = array ('.jpg', '.png');
 $MEDIATYPES = array('image/jpeg', 'image/png');
 $DATEFORMAT = "Y/m/d H:i";
 $MAXSIZE = 2048*2048;
+//Adatkapcsolat
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "webprog_beadando";
