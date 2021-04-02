@@ -16,11 +16,36 @@ $lablec = [
 $oldalak = [
     '/' => [
         'fajl' => 'cimlap',
-        'nev' => 'Címlap'
+        'nev' => 'Főoldal'
     ],
-    'proba' => [
-        'fajl' => 'proba',
-        'nev' => 'Próba'
+    'malacrol' => [
+        'fajl' => 'malacrol',
+        'nev' => 'A tengeri malacról'
+    ],
+    'galeria' => [
+        'fajl' => 'galeria',
+        'nev' => 'Képgaléria'
+    ],
+    'urlap' => [
+        'fajl' => 'urlap',
+        'nev' => 'Üzenj nekünk'
+    ],
+    'uzenet' => [
+        'fajl' => 'uzenet',
+        'nev' => 'Elküldött üzenet'
+    ],
+    'uzenetek' => [
+        'fajl' => 'uzenetek',
+        'nev' => 'Üzenetek'
+    ],
+    'belep' => [
+        'fajl' => 'belep',
+        'nev' => 'Belépés'
+    ]
+    ,
+    'kilep' => [
+        'fajl' => 'kilep',
+        'nev' => 'Kilépés'
     ]
 ];
 

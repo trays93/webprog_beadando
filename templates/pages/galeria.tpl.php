@@ -1,0 +1,2 @@
+<h2>Képgaléria</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta at itaque reiciendis eius voluptates, amet enim exercitationem! Dolorem, quibusdam excepturi, sequi fuga fugit accusamus cupiditate necessitatibus commodi mollitia vel nihil?</p>
