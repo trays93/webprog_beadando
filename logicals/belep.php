@@ -49,7 +49,6 @@ function validateRegInput($data) {
         $validationErrors['login'] = 'A login név csak betűket és számokat tartalmazhat';
     }
 
-
     // E-mail ellenőrzése
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $validationErrors['email'] = 'Hibás e-mail!';
@@ -57,10 +56,10 @@ function validateRegInput($data) {
 
     // Jelszó név ellenőrzése
     if (empty($_POST['passw'])) {
-        $validationErrors['passw'] = 'A jelszó név nem lehet üres!';
+        $validationErrors['passw'] = 'A jelszó nem lehet üres!';
     }
     if (!preg_match('/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð0123456789]+$/', $_POST['passw'])) {
-            $validationErrors['passw'] = 'A jelszó név csak betűket és számokat tartalmazhat';
+            $validationErrors['passw'] = 'A jelszó csak betűket és számokat tartalmazhat';
     }
 
     return $validationErrors;
@@ -71,6 +70,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($_POST as $key => $value) {
             $_POST[$key] = filterInput($value);
         }
+
+        $uzenet = new Belep();
+        $uzenet->login = $_POST['login'];
+        $uzenet->passw = sha1($_POST['passw']);
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT login, veznev, kernev  FROM reg_adat where login = :login and passw = :passw");
+            // $stmt->bindParam(':login', $uzenet->login);
+            // $stmt->bindParam(':passw', $uzenet->passw);
+            $stmt->execute([
+                ':login' => $uzenet->login,
+                ':passw' => $uzenet->passw,
+            ]);
+            // set the resulting array to associative
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
+            var_dump($result);
+            exit();
+            
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+
+        $keres = $oldalak['/'];
+        $sikeresBelepes = 'Sikeres belépés';
+        // $validationErrors = validateRegInput($_POST);
+        // var_dump($validationErrors);
+
+        // if (!count($validationErrors)) {
+        //     // sikeres validáció esetén:
+            
+        // }
     }
 
     if (isset($_POST['regisztral'])) {
