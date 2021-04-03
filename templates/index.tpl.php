@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-if (isset($oldal) && file_exists("./logicals/{$oldal['fajl']}.php")) {
-    include("./logicals/{$oldal['fajl']}.php");
+if (isset($keres) && file_exists("./logicals/{$keres['fajl']}.php")) {
+    include("./logicals/{$keres['fajl']}.php");
 }
 
 ?>
@@ -55,5 +55,9 @@ if (isset($oldal) && file_exists("./logicals/{$oldal['fajl']}.php")) {
             <span class="text-muted"><?= $lablec['copyright'] ?> - <?= $lablec['nev'] ?></span>
         </div>
     </footer>
+
+    <?php if (isset($keres) && file_exists("./scripts/{$keres['fajl']}.js")) : ?>
+    <script src="<?= "./scripts/{$keres['fajl']}.js" ?>"></script>
+    <?php endif; ?>
 </body>
 </html>

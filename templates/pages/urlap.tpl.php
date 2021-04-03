@@ -1,7 +1,7 @@
 <h2>Üzenj nekünk</h2>
 <p>Írj nekünk üzenetet bátran, válaszolunk amint lehetséges!</p>
 
-<form action="#" method="post" class="row">
+<form action="#" method="post" class="row" name="uzenet">
     <div class="col-md-6">
         <label for="nev" class="form-label">Név</label>
         <input type="text"
@@ -11,15 +11,12 @@
             <?= isset($_POST['nev']) ? ' value="' . $_POST['nev'] . '"' : '' ?>
             aria-describedby="hibasNev"
             required>
-        <?php if (isset($validationErrors['nev'])) : ?>
         <div id="hibasUzenet" class="invalid-feedback">
-            <?= $validationErrors['nev'] ?>
+            <?= isset($validationErrors['nev']) ? $validationErrors['nev'] : '' ?>
         </div>
-        <?php else : ?>
         <div class="valid-feedback">
             Helyes
         </div>
-        <?php endif; ?>
     </div>
     <div class="col-md-6">
         <label for="email" class="form-label">E-mail</label>
@@ -30,15 +27,12 @@
             <?= isset($_POST['email']) ? ' value="' . $_POST['email'] . '"' : '' ?>
             aria-describedby="hibasEmail"
             required>
-        <?php if (isset($validationErrors['email'])) : ?>
         <div id="hibasEmail" class="invalid-feedback">
-            <?= $validationErrors['email'] ?>
+            <?= isset($validationErrors['email'])? $validationErrors['email'] : '' ?>
         </div>
-        <?php else : ?>
         <div class="valid-feedback">
             Helyes
         </div>
-        <?php endif; ?>
     </div>
     <div class="col-12">
         <label for="targy" class="form-label">Tárgy</label>
@@ -49,15 +43,12 @@
             <?= isset($_POST['targy']) ? ' value="' . $_POST['targy'] . '"' : '' ?>
             aria-describedby="hibasTargy"
             required>
-        <?php if (isset($validationErrors['targy'])) : ?>
-        <div id="hibasEmail" class="invalid-feedback">
-            <?= $validationErrors['targy'] ?>
+        <div id="hibasTargy" class="invalid-feedback">
+            <?= isset($validationErrors['targy']) ? $validationErrors['targy'] : '' ?>
         </div>
-        <?php elseif (isset($_POST['uzenet'])) : ?>
         <div class="valid-feedback">
             Helyes
         </div>
-        <?php endif; ?>
     </div>
     <div class="col-12">
         <label for="uzenet" class="form-label">Üzenet</label>
@@ -67,17 +58,14 @@
             rows="3"
             aria-describedby="hibasUzenet"
             required><?= isset($_POST['uzenet']) ?  $_POST['uzenet'] : '' ?></textarea>
-        <?php if (isset($validationErrors['uzenet'])) : ?>
-        <div id="hibasEmail" class="invalid-feedback">
-            <?= $validationErrors['uzenet'] ?>
+        <div id="hibasUzenet" class="invalid-feedback">
+            <?= isset($validationErrors['uzenet']) ? $validationErrors['uzenet'] : '' ?>
         </div>
-        <?php elseif (isset($_POST['uzenet'])) : ?>
         <div class="valid-feedback">
             Helyes
         </div>
-        <?php endif; ?>
     </div>
     <div class="col-12">
-        <button class="btn btn-primary" type="submit">Üzenet küldése</button>
+        <button class="btn btn-primary" type="submit" id="submit">Üzenet küldése</button>
     </div>
 </form>
