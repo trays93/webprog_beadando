@@ -29,11 +29,15 @@ if (isset($keres) && file_exists("./logicals/{$keres['fajl']}.php")) {
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <?php foreach ($oldalak as $url => $oldal) : ?>
+                        <?php if ($oldal['visible']
+                            && !isset($_SESSION['user']) && $oldal['login'][0]
+                            || isset($_SESSION['user']) && $oldal['login'][1]) : ?>
                         <li class="nav-item">
                             <a class="nav-link<?= $oldal == $keres ? ' active' : '' ?>" href="<?= ($url == '/') ? '.' : ('?oldal=' . $url) ?>">
                                 <?= $oldal['nev'] ?>
                             </a>
                         </li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                     </ul>
                     <?php if (isset($_SESSION['user']['vezNev'])) : ?>
