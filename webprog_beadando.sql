@@ -17,5 +17,6 @@ CREATE TABLE `uzenet` (
   `email` varchar(40) DEFAULT NULL,
   `nev` varchar(40) DEFAULT NULL,
   `targy` varchar(40) DEFAULT NULL,
+  `datum` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

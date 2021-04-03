@@ -73,8 +73,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $uzenet->email = $_POST['email'];
         $uzenet->targy = $_POST['targy'];
         $uzenet->uzenet = $_POST['uzenet'];
-        // TODO: adatbázisba menteni az üzenetet!
 
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("INSERT INTO uzenet (nev, targy, email, uzenet) VALUES (:nev, :targy, :email, :uzenet)");
+            $stmt->bindParam(':nev', $uzenet->nev);
+            $stmt->bindParam(':targy', $uzenet->targy);
+            $stmt->bindParam(':email', $uzenet->email);
+            $stmt->bindParam(':uzenet', $uzenet->uzenet);
+            $stmt->execute();
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
 
         $keres = $oldalak['uzenet'];
     }

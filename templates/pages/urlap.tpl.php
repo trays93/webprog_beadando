@@ -1,10 +1,3 @@
-<?php
-
-var_dump(isset($validationErrors['targy']) ? 'is-invalid' : (isset($_POST['targy']) ? 'is-valid' : ''));
-
-?>
-
-
 <h2>Üzenj nekünk</h2>
 <p>Írj nekünk üzenetet bátran, válaszolunk amint lehetséges!</p>
 
