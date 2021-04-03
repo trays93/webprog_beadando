@@ -78,32 +78,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $conn->prepare("SELECT login, veznev, kernev  FROM reg_adat where login = :login and passw = :passw");
-            // $stmt->bindParam(':login', $uzenet->login);
-            // $stmt->bindParam(':passw', $uzenet->passw);
             $stmt->execute([
                 ':login' => $uzenet->login,
                 ':passw' => $uzenet->passw,
             ]);
-            // set the resulting array to associative
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetchAll();
-            var_dump($result);
-            exit();
-            
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch();
+
+            if ($result) {
+                $user = [
+                    'login' => $result['login'],
+                    'vezNev' => $result['veznev'],
+                    'kerNev' => $result['kernev'],
+                ];
+
+                $_SESSION['user'] = $user;
+
+                header('Location: .');
+            } else {
+                $loginError = 'Hibás név vagy jelszó!';
+            }
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
         $conn = null;
-
-        $keres = $oldalak['/'];
-        $sikeresBelepes = 'Sikeres belépés';
-        // $validationErrors = validateRegInput($_POST);
-        // var_dump($validationErrors);
-
-        // if (!count($validationErrors)) {
-        //     // sikeres validáció esetén:
-            
-        // }
     }
 
     if (isset($_POST['regisztral'])) {
@@ -143,6 +141,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sikeresRegisztracio = 'Sikeres regisztráció!';
         }
     }
-    
     
 }

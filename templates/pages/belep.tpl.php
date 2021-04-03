@@ -2,6 +2,11 @@
    <div class="col-md-6">
         <h2>Belépés</h2>
         <form method="POST">
+            <?php if (isset($loginError)) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $loginError ?>
+            </div>
+            <?php endif; ?>
             <input type="hidden" name="belep" value="belep">
             <label for="login" class="form-label">Login név:</label>
             <input type="text" name="login" id="login" class="form-control is-valid" required>

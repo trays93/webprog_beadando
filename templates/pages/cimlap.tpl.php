@@ -4,10 +4,10 @@
 <p>2012. októbertől végül hivatalosan is megalakult hazánk egyetlen, speciálisan tengerimalac-mentésre szakosodott „érdekvédelmi” szervezete.</p>
 <div class="row">
     <div class="col-sm-6">
-        <img src="./images/1_cocik1.jpg" class="img-fluid" alt="Kép">
+        <img src="./images/1_cocik1.jpg" class="img-fluid img-thumbnail" alt="Kép">
     </div>
     <div class="col-sm-6">
-        <img src="./images/2_lorinc.jpg" class="img-fluid" alt="Kép2">      
+        <img src="./images/2_lorinc.jpg" class="img-fluid img-thumbnail" alt="Kép2">      
     </div>
 </div>
 <p>Legfontosabb feladatunk, hogy a rossz, illetve helytelen körülmények között tartott, kidobott (erdőbe, kukába, utcára, szeméttelepre) vagy leadott tengerimalacokat megmentsük, rehabilitáljuk, szocializáljuk, majd új otthont és felelősségteljes gazdikat találjunk nekik.</p>

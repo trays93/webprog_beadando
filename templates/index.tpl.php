@@ -4,7 +4,6 @@ session_start();
 if (isset($keres) && file_exists("./logicals/{$keres['fajl']}.php")) {
     include("./logicals/{$keres['fajl']}.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="hu" class="h-100">
@@ -37,6 +36,11 @@ if (isset($keres) && file_exists("./logicals/{$keres['fajl']}.php")) {
                         </li>
                     <?php endforeach; ?>
                     </ul>
+                    <?php if (isset($_SESSION['user']['vezNev'])) : ?>
+                    <div class="d-flex">
+                        <span class="text-white"><?= $_SESSION['user']['vezNev'] ?> <?= $_SESSION['user']['kerNev'] ?> (<?= $_SESSION['user']['login'] ?>)</span>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>
