@@ -40,7 +40,7 @@ $oldalak = [
     ],
     'belep' => [
         'fajl' => 'belep',
-        'nev' => 'Belépés'
+        'nev' => 'Belépés/Regisztráció'
     ]
     ,
     'kilep' => [
@@ -57,7 +57,7 @@ $hibaOldal = [
 $FOLDER = './galeria/';
 $TYPES = array ('.jpg', '.png');
 $MEDIATYPES = array('image/jpeg', 'image/png');
-$DATEFORMAT = "Y/m/d H:i";
+$DATEFORMAT = "Y.m.d. H:i";
 $MAXSIZE = 2048*2048;
 //Adatkapcsolat
 $servername = "localhost";
