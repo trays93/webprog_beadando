@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (file_exists("./logicals/{$oldal['fajl']}.php")) {
+if (isset($oldal) && file_exists("./logicals/{$oldal['fajl']}.php")) {
     include("./logicals/{$oldal['fajl']}.php");
 }
 
