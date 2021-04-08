@@ -26,7 +26,7 @@
         <?php endif; ?>
             <input type="hidden" name="regisztral" value="regisztral">
             
-            <label for="veznev" class="form-label">Vezeték név</label>
+            <label for="veznev" class="form-label">Vezetéknév</label>
             <input type="text"
                 name="veznev"
                 id="veznev"
@@ -46,7 +46,7 @@
             
 
 
-            <label for="kernev" class="form-label">Kereszt név:</label>
+            <label for="kernev" class="form-label">Keresztnév:</label>
             <input type="text"
                 name="kernev"
                 id="kernev"

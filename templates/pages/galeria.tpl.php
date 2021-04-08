@@ -22,7 +22,7 @@
 <?php endif ;?>
 <form method="post"
             enctype="multipart/form-data">
-    <label><input type="file" name="first" required></label>
+    <label><input type="file" class="btn btn-primary"  name="first" required></label>
     <br><br>
-    <input type="submit" name="send">
+    <input class="btn btn-primary" type="submit"  name="send">
 </form>
